@@ -1,160 +1,101 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+def input_numero(texto="Insira seu texto aqui:", tipo="int"):
+    try:
+        if tipo == "int":
+            return int(input(texto + "\n"))
+        if tipo == "float":
+            return float(input(texto + "\n"))
+    except:
+        print("Deve ser um numero")
+        return input_numero(texto)
 
-# C extensions
-*.so
+def final_privado(res):
+    if res < 5:
+        print(f"Sua emissão de CO2 é de: {res:.2f}. Por conseguir emitir menos de 5 kg de CO2, você acaba ganhando 15% de desconto na Declaração de Imposto de Renda do ano vigente")
+    else:
+        print (f"Sua emissão de CO2 é de: {result:.2f}.")
+        compensacao = input_numero("Por estar acima do recomendável, será necessária compensação por créditos de carbono.\n 1 - Fazenda Ouro Verde - Eunápolis, Bahia \n 2 - Fazenda Belo Horizonte - Potiguará, Bahia \n 3- Entre Rios - Maracaçumé, Maranhão \n 4 - outra forma de compensação de carbono \n Escreva aqui: ")
+        if compensacao == 4:
+            print("Você terá que pagar o valor de R$ 185,00 para uma empresa parceira de sua escolha, entre em contato com o suporte da empresa para emissão de boleto.")
+        else:
+            print("Para comprar os créditos de carbono do projeto solicitado se dirija até o endereço da organização ou entre em contato pelo número", end="")
+            if compensacao == 1:
+                print("+55 21 3819-2166")
+            if compensacao == 2:
+                print("+55 21 3819-2166")
+            if compensacao == 3:
+                print("+55 21 3819-2166")
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+def final_publico(res):
+    if res < 100:
+        print(f"Sua emissão de CO2 é de: {res:.2f}. Por conseguir emitir menos de 100 kg de CO2 por ônibus, sua empresa terá desconto na compra de créditos de carbono e nos impostos relacionados \n 1 - Fazenda Ouro Verde - Eunápolis, Bahia \n 2 - Fazenda Belo Horizonte - Potiguará, Bahia \n 3- Entre Rios - Maracaçumé, Maranhão \n 4 - outra forma de compensação de carbono \n Escreva aqui: ")
+    else:
+        print (f"Sua emissão de CO2 é de: {result:.2f}.")
+        compensacao = input_numero("Sua frota emitiu mais CO2 do que o recomendável. Devido a isso será cobrado 15% de juros na receita da empresa e será necessária compensação por créditos de carbono.\n 1 - Fazenda Ouro Verde - Eunápolis, Bahia \n 2 - Fazenda Belo Horizonte - Potiguará, Bahia \n 3- Entre Rios - Maracaçumé, Maranhão \n 4 - outra forma de compensação de carbono \n Escreva aqui: ")
+        if compensacao == 4:
+            print("Você terá que pagar o valor de R$ 5.000,00 para uma empresa parceira de sua escolha, entre em contato com o suporte da empresa para emissão de boleto.")
+        else:
+            print("Para comprar os créditos de carbono do projeto solicitado se dirija até o endereço da organização ou entre em contato pelo número", end="")
+            if compensacao == 1:
+                print("+55 21 3819-2166")
+            if compensacao == 2:
+                print("+55 21 3819-2166")
+            if compensacao == 3:
+                print("+55 21 3819-2166")
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+def quilometro_litro():
+    km = input_numero("Quantos km você roda por dia?: ", "float")
+    l = input_numero("Quantos litros você coloca?: ", "float")
+    return km / l
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+trans = input_numero("Olá! Bem-vindo. \n Você busca calcular por transporte Privado ou Público? \n 1 - Privado \n 2 - Público \n Escreva aqui: ")
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-cover/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-.pybuilder/
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
-
-# pyenv
-#   For a library or package, you might want to ignore these files since the code is
-#   intended to run in multiple environments; otherwise, check them in:
-# .python-version
-
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
-
-# poetry
-#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-#poetry.lock
-
-# pdm
-#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
-#pdm.lock
-#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
-#   in version control.
-#   https://pdm.fming.dev/#use-with-ide
-.pdm.toml
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
-
-# pytype static type analyzer
-.pytype/
-
-# Cython debug symbols
-cython_debug/
-
-# PyCharm
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
+if trans == 1:
+    esc = input_numero("Agora escolha o meio de transporte em que queira calcular o Crédito de Carbono: \n 1 - Carro \n 2 - Van/Ônibus \n Escreva aqui o véiculo desejado: ")
+    if esc == 1:
+        kml = quilometro_litro()
+        com = input_numero("Qual o combustível que você utiliza no véiculo?. \n 1 - Gasolina \n 2 - Diesel \n 3 - Alcool \n 4- Gás Natural (GNV)\n Escreva aqui qual o combústivel utilizado: ")
+        if com == 1:
+            result = kml*0.83*0.75*3.7
+            final_privado(result)
+        if com == 2:
+            result = kml*0.83*0.85*3.7
+            final_privado(result)
+        if com == 3:
+            result = kml*0.83*0.78*3.7
+            final_privado(result)
+        if com == 4:
+            result = kml*0.83*0.76*3.7
+            final_privado(result)
+    if esc == 2:
+        kml = quilometro_litro()
+        com = int(input("Qual o combustível que você utiliza no véiculo?. \n 1 - Gasolina \n 2 - Diesel \n 3 - Alcool \n 4- Gás Natural (GNV)\n Escreva aqui qual o combústivel utilizado: "))
+        if com == 1:
+            result = kml*0.83*0.75*3.7
+            final_privado(result)
+        if com == 2:
+            result = kml*0.83*0.85*3.7
+            final_privado(result)
+        if com == 3:
+            result = kml*0.83*0.78*3.7
+            final_privado(result)
+        if com == 4:
+            result = kml*0.83*0.76*3.7
+            final_privado(result)
+if trans == 2:
+    frota = input_numero("Essa seção é feita para empresas \n Para calcular a emissão de CO2 da sua empresa insira aqui a quantidade de frota (unidade) em uso: ")
+    km = float(input("Insira a distância percorrida pela sua frota em km: "))
+    l = float(input("Insira a quantidade de gasolina para cada ônibus em litros: "))
+    kml = km/l
+    com = int(input("Qual o combustível que você utiliza no véiculo?. \n 1 - Gasolina \n 2 - Diesel \n 3 - Alcool \n 4- Gás Natural (GNV)\n Escreva aqui qual o combústivel utilizado: "))
+    if com == 1:
+        result = frota*kml*0.83*0.75*3.7
+        final_publico(result)
+    if com == 1:
+        result = frota*kml*0.83*0.85*3.7
+        final_publico(result)
+    if com == 1:
+        result = frota*kml*0.83*0.78*3.7
+        final_publico(result)
+    if com == 1:
+        result = frota*kml*0.83*0.76*3.7
+        final_publico(result)
